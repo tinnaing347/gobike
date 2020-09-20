@@ -15,7 +15,8 @@ func main() {
 
 	cron1 := gocron.NewScheduler(time.UTC)
 	tag1 := []string{"station_information"}
-	cron1.Every(1).Minutes().SetTag(tag1).Do(bike.StationInformationTask)
-	// cron1.Every(2).Minutes([]string{"bike_status"}).Lock().Do(bike.StationStatusTask)
+	tag2 := []string{"bike_status"}
+	cron1.Every(1).Months(time.Now().Day()).SetTag(tag1).Do(bike.StationInformationTask)
+	cron1.Every(15).Minutes().SetTag(tag2).Do(bike.StationStatusTask)
 	cron1.StartBlocking()
 }
