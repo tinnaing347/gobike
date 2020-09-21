@@ -17,6 +17,6 @@ func main() {
 	tag1 := []string{"station_information"}
 	tag2 := []string{"bike_status"}
 	cron1.Every(1).Months(time.Now().Day()).SetTag(tag1).StartImmediately().Do(bike.StationInformationTask)
-	cron1.Every(15).Minutes().SetTag(tag2).StartImmediately().Do(bike.StationStatusTask)
+	cron1.Every(10).Minutes().SetTag(tag2).StartImmediately().Do(bike.StationStatusTask)
 	cron1.StartBlocking()
 }
