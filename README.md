@@ -1,5 +1,6 @@
 ### gobike
-- Pull real time data from Citibike (api?) and stored them in InfluxDB(v1.8.x)
+- Pull real time data from Citibike (api?) and stored them in InfluxDB(v1.8.x).
+- Visualize data with plotly.
 - Except for python visualization code, the whole process can be dockerized.
 - [Click here](https://www.citibikenyc.com/system-data) for information on data.
 
@@ -28,4 +29,7 @@ df = client.combine_bike_and_station_data(bike, station) #see sample.csv for dat
 fig = viz.visualize_data(df, ".mapbox_token", "citibike_map.html", return_figure=True)
 fig.show()
 ```
+
+![Citibike](/python/citibike_map.gif)
+
 
