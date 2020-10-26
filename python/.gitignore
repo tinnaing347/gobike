@@ -1,0 +1,5 @@
+*.csv
+*.html
+!sample.csv
+!citibike_map.html
+__pycache__/

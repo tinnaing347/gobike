@@ -8,3 +8,5 @@ ADD . /code/
 
 RUN ls
 RUN printenv 
+
+RUN chmod +x entrypoint.sh

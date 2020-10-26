@@ -16,8 +16,8 @@ services:
             context: . 
             dockerfile: ./Dockerfile 
         environment:
-            - API_ADDRESS=${API_ADDRESS}
-        command: go run main.go
+            - DB_ADDRESS=${DB_ADDRESS}
+        entrypoint: /code/entrypoint.sh
         volumes:
             - .:/code 
         depends_on:

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"time"
 
 	"github.com/go-co-op/gocron"
@@ -10,7 +11,7 @@ import (
 
 func main() {
 
-	models.CreateClient()
+	models.CreateClient(os.Getenv("DB_ADDRESS"))
 	defer models.DB.Close()
 
 	cron1 := gocron.NewScheduler(time.UTC)

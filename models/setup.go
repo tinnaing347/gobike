@@ -2,22 +2,20 @@ package models
 
 import (
 	"log"
-	"os"
 
 	client "github.com/influxdata/influxdb1-client/v2"
-	"github.com/joho/godotenv"
 )
 
 var DB client.Client
 
-func CreateClient() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+func CreateClient(db_address string) {
 	c, err := client.NewHTTPClient(client.HTTPConfig{
-		Addr: os.Getenv("API_ADDRESS"),
+		Addr: db_address,
 	})
+
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	DB = c
 }
